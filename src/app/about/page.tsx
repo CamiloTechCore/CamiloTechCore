@@ -1,11 +1,16 @@
 import Image from 'next/image';
-import PageTransition from "@/components/PageTransition";
 import dynamic from 'next/dynamic';
 
-// Esta es la nueva forma de importar el componente
+
+// 1. Importamos dinámicamente PageTransition y deshabilitamos SSR
+const PageTransition = dynamic(() => import('@/components/PageTransition'), {
+  ssr: false,
+});
+
+// 2. Mantenemos la importación dinámica para SkillsCloud
 const SkillsCloud = dynamic(() => import('@/components/SkillsCloud'), {
-  ssr: false, // 👈 La clave: deshabilita el renderizado en servidor para este componente
-  loading: () => <p className="text-center">Cargando nube de habilidades...</p>, // Opcional: Muestra un texto mientras carga
+  ssr: false,
+  loading: () => <p className="text-center">Cargando nube de habilidades...</p>,
 });
 
 // Define tu lista de habilidades aquí
@@ -63,6 +68,13 @@ export default function AboutPage() {
 
             <div className="flex flex-wrap justify-center gap-3 mt-8">
             {/* ... el resto de tus skills en píldoras ... */}
+            <div className="flex flex-wrap justify-center gap-3 mt-8">
+              {skills.map((skill) => (
+                <span key={skill} className="bg-cyan-100 text-cyan-800 text-sm font-semibold px-4 py-2 rounded-full">
+                {skill}
+                </span>
+                ))}
+            </div>
             </div>
           </div>        
           {/* --- Sección de Descarga de CV --- */}
