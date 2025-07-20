@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import PageTransition from "@/components/PageTransition";
+import SkillsCloud from '@/components/SkillsCloud';
 
 // Define tu lista de habilidades aquí
 const skills = [
@@ -51,15 +52,13 @@ export default function AboutPage() {
           {/* --- Sección de Habilidades --- */}
           <div className="mt-12">
             <h2 className="text-3xl font-bold text-center mb-6">Mis Habilidades</h2>
-            <div className="flex flex-wrap justify-center gap-3">
-              {skills.map((skill) => (
-                <span key={skill} className="bg-cyan-100 text-cyan-800 text-sm font-semibold px-5 py-2 rounded-full">
-                  {skill}
-                </span>
-              ))}
+            
+            <SkillsCloud /> {/* <-- Añadir el componente */}
+
+            <div className="flex flex-wrap justify-center gap-3 mt-8">
+            {/* ... el resto de tus skills en píldoras ... */}
             </div>
-          </div>
-          
+          </div>        
           {/* --- Sección de Descarga de CV --- */}
           <div className="mt-12 text-center">
             <h2 className="text-3xl font-bold text-center mb-6">¿Quieres saber más?</h2>
