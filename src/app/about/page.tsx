@@ -1,6 +1,12 @@
 import Image from 'next/image';
 import PageTransition from "@/components/PageTransition";
-import SkillsCloud from '@/components/SkillsCloud';
+import dynamic from 'next/dynamic';
+
+// Esta es la nueva forma de importar el componente
+const SkillsCloud = dynamic(() => import('@/components/SkillsCloud'), {
+  ssr: false, // 👈 La clave: deshabilita el renderizado en servidor para este componente
+  loading: () => <p className="text-center">Cargando nube de habilidades...</p>, // Opcional: Muestra un texto mientras carga
+});
 
 // Define tu lista de habilidades aquí
 const skills = [
