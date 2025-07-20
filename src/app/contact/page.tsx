@@ -1,5 +1,5 @@
 import PageTransition from "@/components/PageTransition";
-import ContactForm from "./ContactForm";
+import ContactForm from "../../components/ContactForm";
 
 export default function ContactPage() {
   return (
