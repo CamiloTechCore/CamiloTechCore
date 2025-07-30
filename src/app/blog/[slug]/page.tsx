@@ -4,6 +4,9 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import PageTransitionLoader from '@/components/PageTransitionLoader';
+import ShareButtons from '@/components/ShareButtons';
+import PostLayout from '@/components/blog/PostLayout'; // 👈 Importamos el nuevo componente
+
 
 async function getPostData(slug: string) {
     const postsDirectory = path.join(process.cwd(), 'posts');
@@ -28,12 +31,11 @@ export default async function PostPage({ params }: { params: { slug:string } }) 
     return (
         <PageTransitionLoader>
             <main className="container mx-auto p-4 md:p-8">
-                <article className="prose lg:prose-xl mx-auto">
-                    <h1 className="text-4xl font-bold mb-4">{postData.title}</h1>
-                    <time dateTime={postData.date} className="text-gray-500">{postData.date}</time>
-                    <hr className="my-8" />
-                    <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-                </article>
+                {/* 👇 Ahora solo llamamos a nuestro componente de layout */}
+                <PostLayout postData={postData} />
+                <div className="max-w-3xl mx-auto mt-8">
+                  <ShareButtons title={postData.title} slug={postData.slug} />
+                </div>
             </main>
         </PageTransitionLoader>
     );
