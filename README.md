@@ -63,7 +63,7 @@
 <div align="center">
   <h3>✨ Mi Proceso Visualizado ✨</h3>
   <p><i></i></p>
-  <img src="/page/public/Descubriendo.png" alt="Andamiaje Cognitivo">
+  <img src="public/Descubriendo.png" alt="Andamiaje Cognitivo">
 </div>
 
 ---
