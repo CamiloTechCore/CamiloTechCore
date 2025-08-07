@@ -62,7 +62,7 @@
 
 <div align="center">
   <h3>✨ Mi Proceso Visualizado ✨</h3>
-  <p><i>Aquí puedes agregar la imagen de tu proceso cuando la tengas lista.</i></p>
+  <p><i href="C:\Users\vera_\Documents\CamiloTechCore\portafolio\page\public\Descubriendo el Andamiaje Cognitivo_ Un Vistazo a Todas sus Fases - visual selection.png"></i></p>
   
   <img src="URL_DE_TU_IMAGEN_AQUI" alt="Diagrama del proceso de mi proyecto">
 </div>
