@@ -63,7 +63,7 @@
 <div align="center">
   <h3>✨ Mi Proceso Visualizado ✨</h3>
   <p><i></i></p>
-  <img src="/page/public/Descubriendo el Andamiaje Cognitivo_ Un Vistazo a Todas sus Fases - visual selection.svg" alt="Andamiaje Cognitivo">
+  <img src="/page/public/Descubriendo.png" alt="Andamiaje Cognitivo">
 </div>
 
 ---
