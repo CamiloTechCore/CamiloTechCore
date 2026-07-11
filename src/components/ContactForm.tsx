@@ -38,8 +38,14 @@ export default function ContactForm() {
       setEmail('');
       setMessage('');
     } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message.includes('Failed to fetch')
+            ? 'No se pudo conectar con el servidor. Verifica que la app esté en línea y que la ruta de envío esté disponible.'
+            : error.message
+          : 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.';
       console.error('Error al enviar a Google Sheets:', error);
-      setStatusMessage('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
+      setStatusMessage(message);
       setIsError(true);
     } finally {
       setIsSubmitting(false);
