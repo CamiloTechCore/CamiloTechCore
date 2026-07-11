@@ -18,28 +18,28 @@ export default function ContactForm() {
     setStatusMessage('');
     setIsError(false);
 
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwvMsVELe8qOYAj9xxe-JRThE74wuqoJZ6ZBEdB_UkMKFWJ2iRYqvVunZsR32TCgDw6Fw/exec";
-
     try {
-      await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors', // Importante para la comunicación con Apps Script
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ name, email, message }),
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
       });
 
-      // Asumimos éxito si no hay un error de red
-      setStatusMessage("¡Mensaje enviado con éxito! Gracias por contactarme.");
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => null);
+        throw new Error(errorData?.error || 'Error al enviar el formulario');
+      }
+
+      setStatusMessage('¡Mensaje enviado con éxito! Gracias por contactarme.');
       setIsError(false);
       setName('');
       setEmail('');
       setMessage('');
-
     } catch (error) {
-      console.error("Error al enviar a Google Sheets:", error);
-      setStatusMessage("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+      console.error('Error al enviar a Google Sheets:', error);
+      setStatusMessage('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
       setIsError(true);
     } finally {
       setIsSubmitting(false);

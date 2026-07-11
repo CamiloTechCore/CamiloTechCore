@@ -60,6 +60,43 @@
 
 ---
 
+## Integración de formulario con Google Sheets
+
+Se agregó un endpoint en `src/app/api/contact/route.ts` para enviar los datos del formulario a la hoja de cálculo de Google Sheets.
+
+### Qué hace
+- Valida los campos `name`, `email` y `message`.
+- Garantiza que la hoja `BD` tenga los encabezados:
+  - `ID`
+  - `Nombre`
+  - `Email`
+  - `Mensaje`
+  - `Fecha`
+- Inserta una fila nueva con un `ID` único generado por el servidor.
+
+### Variables de entorno necesarias
+Define estas variables en tu entorno o en Vercel:
+
+- `GOOGLE_SHEETS_SPREADSHEET_ID`: valor real de la hoja de cálculo
+- `GOOGLE_SHEETS_TAB_NAME`: `BD`
+- `GOOGLE_SERVICE_ACCOUNT_EMAIL`: correo de la cuenta de servicio
+- `GOOGLE_SERVICE_ACCOUNT_PRIVATE_KEY`: clave privada de la cuenta de servicio en formato JSON/PEM
+
+
+### Preparar la hoja de cálculo
+- Comparte la hoja con la cuenta de servicio.
+- La aplicación agrega los encabezados automáticamente si no existen.
+
+### Dependencias nuevas
+- `googleapis`
+
+### Envío del formulario
+El formulario usa ahora `POST /api/contact` en lugar de un script externo.
+
+---
+
+---
+
 <div align="center">
   <h3>✨ Mi Proceso Visualizado ✨</h3>
   <p><i></i></p>
