@@ -6,7 +6,7 @@
   </p>
 
   <p>
-    <a href="https://camilo-tech-core.vercel.app/" target="_blank">
+    <a href="https://camilotechcore.vercel.app/" target="_blank">
       <img src="https://img.shields.io/badge/Portafolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Mi Portafolio"/>
     </a>
     <a href="https://www.linkedin.com/in/camilotechcore/" target="_blank">
